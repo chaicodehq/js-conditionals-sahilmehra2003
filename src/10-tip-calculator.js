@@ -31,4 +31,18 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  if (billAmount<=0 || serviceRating<1 || serviceRating>5 || !Number.isInteger(serviceRating)) {
+    return null
+  }
+  if (serviceRating===1) {
+    return {tipPercentage:5,tipAmount:Number((0.05*billAmount).toFixed(2)),totalAmount:Number((billAmount+(0.05*billAmount)).toFixed(2))};
+  }else if(serviceRating===2){
+    return {tipPercentage:10,tipAmount:Number((0.1*billAmount).toFixed(2)),totalAmount:Number((billAmount+(0.1*billAmount)).toFixed(2))};
+  }else if(serviceRating===3){
+    return {tipPercentage:15,tipAmount:Number((0.15*billAmount).toFixed(2)),totalAmount:Number((billAmount+(0.15*billAmount)).toFixed(2))};
+  }else if(serviceRating===4){
+    return {tipPercentage:20,tipAmount:Number((0.2*billAmount).toFixed(2)),totalAmount:Number((billAmount+(0.2*billAmount)).toFixed(2))};
+  }else{
+    return {tipPercentage:25,tipAmount:Number((0.25*billAmount).toFixed(2)),totalAmount:Number((billAmount+(0.25*billAmount)).toFixed(2))};
+  }
 }
